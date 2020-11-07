@@ -69,6 +69,11 @@ class DeepCloneTest {
         val complexObject = ComplexObject()
         val complexObjectClone =  complexObject.deepCopy()
 
+        val removeAt = complexObjectClone.listExample.removeAt(1)
+
+        println(complexObject.listExample)
+        println(complexObjectClone.listExample)
+
         assertNotNull(complexObjectClone)
         assertFalse(complexObject === complexObjectClone)
 
@@ -91,8 +96,21 @@ class DeepCloneTest {
         }
 
         val copyList = list.deepCopy()
-//        println(list[0].children.name)
+
+        copyList[0].children.name = "yu"
+        println(list[0].children.name)
         println(copyList[0].children.name)//change
+    }
+
+    @Test
+    fun test1(){
+        val user = User("parade", 18, mutableListOf("1","2"))
+        val copy = user.copy()
+        copy.name = "change"
+//        copy.list[0] = "test"
+        println(user)
+        println(copy)
+
     }
 
 }
@@ -127,3 +145,4 @@ class ComplexObject {
     val simpleNestedObject = SimpleObject()
 
 }
+
