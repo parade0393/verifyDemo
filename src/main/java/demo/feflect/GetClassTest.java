@@ -45,9 +45,9 @@ public class GetClassTest {
         Class<DemoClass> clz1 = DemoClass.class;
         Class<?> clz2 = Class.forName("demo.feflect.DemoClass");
         Class<? extends DemoClass> clz3 = new DemoClass("").getClass();
-        System.out.println(clz1 == clz2);
-        System.out.println(clz2 == clz3);
-        System.out.println(clz1 == clz3);
+        System.out.println(clz1 == clz2);//true
+        System.out.println(clz2 == clz3);//true
+        System.out.println(clz1 == clz3);//true
     }
 
     /**
@@ -113,14 +113,14 @@ public class GetClassTest {
             /**
              * 获取某个方法，第一个参数是方法名称，后面的参数说是方法的形参类型
              */
-            Method setNickName = forName.getDeclaredMethod("setNickName", String.class);
+            Method setNickName = forName.getDeclaredMethod("setNickName", String.class,int.class);
             /**
              * 反射调用方法，第一个参数是实例对象，后面的参数是方法的实参
              */
             Field nickName = forName.getDeclaredField("nickName");
             nickName.setAccessible(true);
             System.out.println("old:" + nickName.get(o));//null
-            setNickName.invoke(o, "newValue");
+            setNickName.invoke(o, "newValue",0);
             System.out.println("new:" + nickName.get(o));//newValue
 
             Method testMethod = forName.getDeclaredMethod("testMethod");
@@ -141,7 +141,7 @@ public class GetClassTest {
             Method method = forName.getDeclaredMethod("setNickName", String.class, int.class);
 
             /**
-             * 获取方法的每个参数的每个注解
+             * 获取方法的每个参数的每个注解,一个参数可能有多个注解
              */
             Annotation[][] parameterAnnotations = method.getParameterAnnotations();
             for (Annotation[] parameterAnnotation : parameterAnnotations) {
@@ -170,10 +170,10 @@ public class GetClassTest {
     /**
      * ParameterizedType、TypeVariable、WildcardType的测试
      * Class：原始类型，也叫RawType，不仅包括我们平常指的类，枚举，数组，注解，还包括基本数据类型int，float，List等,大类型
-     * ParameterizedType:参数化类型，，大类型
+     * ParameterizedType:参数化类型，，大类型，如List<String>，TypeTest<T>,其小类型可以是WildCardType和TypeVariable
      * TypeVariable:类型变量，比如List<T>中的T，，小类型
      * WildCardType：通配符类型，例如List<? extends Number> 里的? extends Number这种，小类型
-     * GenericArrayType：数组类型，并不是我们平常说的String[],byte[](这种都属于Class)，是带有泛型的数组，比如T[],大类型
+     * GenericArrayType：数组类型，并不是我们平常说的String[],byte[](这种都属于Class)，是带有泛型的数组，比如T[],大类型,List<String>[]
      */
     @Test
     public void test10() {

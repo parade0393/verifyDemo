@@ -6,9 +6,9 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-public class CollectionDemo {
+public class List2StringDemo {
     public static void main(String[] args) {
-       /* List<Integer> list = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
         list.add(1);
         list.add(2);
         list.add(3);
@@ -24,19 +24,8 @@ public class CollectionDemo {
         System.out.printf("\n");
         for (Integer integer : list) {
             System.out.print(integer+",");
-        }*/
-
-        float v = new BigDecimal("3.0").stripTrailingZeros().floatValue();
-        System.out.println(v);
-    }
-
-    public static boolean isNumeric(String str) {
-        String bigStr;
-        try {
-            bigStr = new BigDecimal(str).toString();
-        } catch (Exception e) {
-            return false;//异常 说明包含非数字。
         }
-        return true;
     }
+
+
 }

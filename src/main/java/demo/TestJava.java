@@ -1,6 +1,6 @@
 package demo;
 
-import java.util.ArrayList;
+import java.util.*;
 
 class TestJava {
 
