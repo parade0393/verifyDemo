@@ -1,7 +1,7 @@
 package demo.singleton.java;
 
 /**
- * 饿汉式单例
+ * 懒汉式单例
  */
 public class LazyDemo {
 

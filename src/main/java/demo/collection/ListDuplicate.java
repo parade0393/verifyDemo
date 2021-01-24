@@ -19,13 +19,13 @@ public class ListDuplicate {
         demo2.add(new Node("5", "demo3"));
 
         //第一：Set去重，需要重写equals和hashcode
-       /* Set<Node> set = new HashSet<>();
+        /* Set<Node> set = new HashSet<>();
         set.addAll(demo1);
         set.addAll(demo2);
         System.out.println(set);*/
 
         //第二，map去重，不需要重写equals和hashcode
-       /* Map<String, Node> map = new HashMap<>();
+        /* Map<String, Node> map = new HashMap<>();
 
         for (Node node : demo1) {
             map.put(node.getId(), node);
@@ -43,6 +43,7 @@ public class ListDuplicate {
 
         //第三，同样需要重写equals和hashcode
         demo1.removeAll(demo2);
+        System.out.println(demo1);//[Node{id='3', name='demo3'}]
         demo1.addAll(demo2);
         System.out.println(demo1);
     }

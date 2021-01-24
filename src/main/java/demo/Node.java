@@ -1,14 +1,32 @@
 package demo;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Comparator;
 import java.util.Objects;
 
-public class Node {
+public class Node{
     private String id;
     private String name;
+    private int sortNum;
 
     public Node(String id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public Node(String id, String name, int sortNum) {
+        this.id = id;
+        this.name = name;
+        this.sortNum = sortNum;
+    }
+
+    public int getSortNum() {
+        return sortNum;
+    }
+
+    public void setSortNum(int sortNum) {
+        this.sortNum = sortNum;
     }
 
     public String getId() {
@@ -46,6 +64,12 @@ public class Node {
         return "Node{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
+                ", sortNum=" + sortNum +
                 '}';
     }
+
+    /*@Override
+    public int compareTo(@NotNull Node o) {
+        return 0;
+    }*/
 }

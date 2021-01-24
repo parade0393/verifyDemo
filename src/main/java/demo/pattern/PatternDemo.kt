@@ -11,15 +11,15 @@ fun main() {
     var num = 0
     while (matcher.find()){
         num++
-        if (num == 20){
+        if (num == 2){
             break
         }
     }
-    var start: Int
-    try {
-         start= matcher.start()
+    val start: Int
+    start = try {
+        matcher.start()
     }catch (e:IllegalStateException){
-        start = -1
+        -1
     }
 
     println("d第二次出现的位置:$start")

@@ -10,7 +10,7 @@ public class InnerStaticClass {
     private InnerStaticClass(){}
 
     private static class InnerStaticClassHolder {
-        private static InnerStaticClass instance = new InnerStaticClass();
+        private static final InnerStaticClass instance = new InnerStaticClass();
     }
 
     public static InnerStaticClass getInstance() {
