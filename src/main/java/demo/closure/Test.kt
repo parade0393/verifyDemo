@@ -7,6 +7,8 @@ fun main() {
     println(f(10))
     println(f(10))
     println(f(10))
+
+
 }
 
 fun sum():(Int)->Int{//声明高阶函数sum的返回值是(Int)->Int类型

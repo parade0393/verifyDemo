@@ -38,7 +38,7 @@ public class ListSortDemo {
         });
 
         System.out.println(demo2);
-        //当然Node实体类也可以实现Comparator接口，这样就可以直接demo.sort()了
+        //当然Node实体类也可以实现Comparator接口，这样就可以直接demo.sort()了;
 
     }
 }

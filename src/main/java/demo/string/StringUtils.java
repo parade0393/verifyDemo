@@ -3,7 +3,10 @@ package demo.string;
 import java.math.BigDecimal;
 
 public class StringUtils {
-
+    public static void main(String[] args) {
+        float dd = stripTrailingZero("dd");
+        System.out.println(dd);
+    }
 
     /**
      * 检查字符串是否可以转成数字类型
@@ -20,6 +23,6 @@ public class StringUtils {
 
 
     public static float stripTrailingZero(String str){
-        return  new BigDecimal("3.000000").stripTrailingZeros().floatValue();
+        return  new BigDecimal("6003.00010111").stripTrailingZeros().floatValue();
     }
 }

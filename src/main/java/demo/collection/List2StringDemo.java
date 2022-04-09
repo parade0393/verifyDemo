@@ -1,6 +1,7 @@
 package demo.collection;
 
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -35,8 +36,43 @@ public class List2StringDemo {
         System.out.println(join);//a,b,c,d
 
         String[] strings = stringList.toArray(new String[0]);//list直接转数组
-        String join1 = String.join(",", strings);
+        String join1 = String.join("", strings);
         System.out.println(join1);//a,b,c,d
+        String dem = "abcdefghijklmn";
+        List<Character> characterList = new ArrayList<>();
+        for (int i = 0; i < dem.length(); i++) {
+            characterList.add(dem.charAt(i));
+        }
+
+
+        String qr = "abcdef";
+        String token = "ghklmn";
+        String[] split1 = qr.split("");
+        String[] split2 = token.split("");
+        List<String> demo = new ArrayList<>();
+        for (int i = 0; i < split1.length; i++) {
+            demo.add(split1[i]);
+            demo.add(split2[i]);
+        }
+        StringBuilder builder1 = new StringBuilder();
+        for (String s : demo) {
+            builder1.append(s);
+        }
+        System.out.println(builder1.toString());
+
+        String prefix = "zwt_qr_login_";
+        String li = "zwt_qr_login_abcdef";
+        String substring = li.substring(prefix.length());
+        System.out.println(substring);
+
+        Date date = new Date();
+        Calendar instance = Calendar.getInstance();
+        instance.setTime(date);
+        instance.add(Calendar.DATE, 1);
+        Date time = instance.getTime();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String format1 = format.format(time);
+        System.out.println(format1);
     }
 
 
