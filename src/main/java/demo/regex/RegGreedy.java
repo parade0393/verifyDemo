@@ -7,7 +7,6 @@ import java.util.regex.Pattern;
  * java默认是贪婪匹配的
  * 任何一个其他限制符 (*, +, ?, {n}, {n,}, {n,m}) 后面时，匹配模式是非贪婪的后边紧跟是非贪婪的
  * 非贪婪匹配是尽可能少的匹配
- *
  */
 public class RegGreedy {
     public static void main(String[] args) {
@@ -24,9 +23,13 @@ public class RegGreedy {
 //            System.out.println("group1:"+matcher.group(1));
 //            System.out.println("group2:"+matcher.group(2));
 //        }
+        StringBuffer buffer = new StringBuffer();
         while (matcher.find()) {
-            System.out.println("找到了："+matcher.group());
+            matcher.appendReplacement(buffer, "-");
+            System.out.println("找到了：" + matcher.group());
         }
+        matcher.appendTail(buffer);//如果没有这一句下面会输出hello---okdfsdf--，有这一句会输出hello---okdfsdf--ok
+        System.out.println(buffer);
     }
 
 }

@@ -53,7 +53,7 @@ public class RegTheory {
         String str = "parade岁月山大佛i和房符合parade0393df发parade同学";
 //        String regEStr = "parade(岁月|0393)";//这样写会捕获分组
         String regEStr = "parade(?:岁月|0393)";
-//        String regEStr = "parade(?:岁月|0393|同学)";//parade岁月和parade0393和parade同学
+//        String regEStr = "parade(?:岁月|0393|同学)";//parade岁月和parade0393和parade同学 不会捕获分组
 //        String regEStr = "parade(岁月|0393)";//parade岁月和parade0393
 //        String regEStr = "parade(?=岁月|0393)";//parade和parade 非捕获parade岁月的parade和parade0393的parade
 //        String regEStr = "parade(?!岁月|0393)";//parade和parade 非捕获parade岁月的parade和parade0393的parade

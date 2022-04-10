@@ -5,6 +5,8 @@ import java.util.regex.Pattern;
 
 /**
  * 正则表达式应用示例
+ * [] 里的字符都是代表普通字符
+ * [.()]就是普通的.和()
  */
 public class RegApply {
     public static void main(String[] args) {
