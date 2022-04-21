@@ -7,7 +7,9 @@ package demo.singleton.java;
  */
 public class InnerStaticClass {
 
-    private InnerStaticClass(){}
+    private InnerStaticClass(){
+        System.out.println("构造函数");
+    }
 
     private static class InnerStaticClassHolder {
         private static final InnerStaticClass instance = new InnerStaticClass();
@@ -16,4 +18,5 @@ public class InnerStaticClass {
     public static InnerStaticClass getInstance() {
         return InnerStaticClassHolder.instance;
     }
+
 }

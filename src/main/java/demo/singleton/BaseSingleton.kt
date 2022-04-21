@@ -20,3 +20,7 @@ class PersonManager private constructor(name: String) {
         override val creator = ::PersonManager
     }
 }
+
+fun main() {
+
+}

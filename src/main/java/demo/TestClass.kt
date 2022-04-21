@@ -1,9 +1,7 @@
 package demo
 
-fun main() {
-    val list = listOf(1,2)
-    val (a,b) = list
-    println(a)
+class TestClass {
+    companion object{
+        const val name = ""
+    }
 }
-
-
