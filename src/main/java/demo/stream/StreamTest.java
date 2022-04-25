@@ -1,16 +1,25 @@
 package demo.stream;
 
-import java.util.*;
-import java.util.function.Supplier;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.util.Optional;
 
 public class StreamTest {
-    public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
-        list.add("a");
-        list.add("b");
-        boolean b = list.contains("b");
-        System.out.println(b);
+    public  String getCity8(Person person) {
+        return Optional.ofNullable(person)
+                .map(Person::getAddress)
+                .map(Address::getCity)
+                .orElseGet(() -> "默认值Jdk8");
+    }
+
+    public String getCity(Person person)  {
+        if (person != null){
+            Address address = person.getAddress();
+            if (address != null){
+                String city = address.getCity();
+                if (city != null){
+                    return city;
+                }
+            }
+        }
+        return "默认值Jdk";
     }
 }

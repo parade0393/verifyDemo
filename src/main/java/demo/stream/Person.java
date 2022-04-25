@@ -1,11 +1,25 @@
 package demo.stream;
 
+import java.util.Optional;
+
 public class Person {
     private String name;
     private int salary;
     private int age;
     private String sex;
     private String area;
+    private Address address;
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public Person() {
+    }
 
     public Person(String name, int salary, int age, String sex, String area) {
         this.name = name;
@@ -53,5 +67,12 @@ public class Person {
 
     public void setArea(String area) {
         this.area = area;
+    }
+
+    public static String getCity8(Person person) {
+       return Optional.ofNullable(person)
+                .map(Person::getAddress)
+                .map(Address::getCity)
+                .orElseGet(() -> "默认值");
     }
 }
