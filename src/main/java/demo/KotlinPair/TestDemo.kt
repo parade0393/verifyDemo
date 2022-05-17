@@ -1,7 +1,5 @@
 package demo.KotlinPair
 
-import java.lang.Exception
-import java.lang.IllegalStateException
 import java.util.regex.Pattern
 
 fun main() {
@@ -21,6 +19,4 @@ fun main() {
     }catch (e:IllegalStateException){
         start = -1
     }
-
-    println("d第二次出现的位置:$start")
 }
