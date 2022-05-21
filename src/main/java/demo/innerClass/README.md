@@ -17,3 +17,7 @@
 ### 静态内部类
 1. 静态内部类和成员内部类类似，只是多了一个static关键字，因此不能访问外部类的非静态成员
 2. 静态内部类名称:和成员内部类一致
+----
+### instanceOf
+`System.out.println(null instanceof Object);//false`
+只有对象才会有null值，但是多有的对象都有可能为false，所以也不好确定null是属于哪一个类，所以为false
