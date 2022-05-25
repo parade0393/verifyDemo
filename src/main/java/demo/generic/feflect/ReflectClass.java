@@ -1,8 +1,8 @@
-package demo.feflect;
+package demo.generic.feflect;
 
 import demo.annotation.JsonFiled;
 
-public class DemoClass {
+public class ReflectClass {
     private String nickName;
     public  int num = 3;
     public int add(int a,int b){
@@ -16,14 +16,14 @@ public class DemoClass {
         System.out.println("DemoClass静态代码块");
     }
     {
-        System.out.println("DemoClass动态代码块");
+        System.out.println("DemoClass初始化代码块");
     }
 
-    public DemoClass(){
+    public ReflectClass(){
         System.out.println("无参构造");
     }
 
-    public DemoClass(String string){
+    public ReflectClass(String string){
         System.out.println("DemoClass构造方法");
     }
 
