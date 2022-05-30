@@ -1,4 +1,4 @@
-package demo.rxjava;
+package demo.rxjava.create;
 
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.ObservableSource;
@@ -10,6 +10,12 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 
 /**
  * 还有一个操作符是fromIterable和fromArray使用差不多，这种既可以保证数据的顺序，又能保证请求的整体性(都完成了整体完成)，但是某一个失败，则整体失败
+ * 快速创建被观察者
+ * 直接发送传入的事件
+ * 发送数量不受限制
+ * 发送的数据类型为数组，若传入一个list,则相当于发送了一个事件
+ * 发送1个事件的时候内部又调用了just
+ * 可以用来遍历数组
  */
 public class FromArray {
     public static void main(String[] args) {
