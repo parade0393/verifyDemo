@@ -6,7 +6,7 @@ import io.reactivex.rxjava3.core.Observer;
 import io.reactivex.rxjava3.disposables.Disposable;
 
 /**
- * 和interval类似，只不过没有延迟发送，会立即发送
+ * 和intervalRange类似，只不过没有延迟发送，会立即发送
  * 这个操作符默认是阻塞当前线程的
  * 下面代码最后输出 "主线程"
  * count=1的时候会调用just

@@ -11,4 +11,5 @@ fun main() {
     println(toJson)
     val gsonBean = gson.fromJson<GsonBean>(toJson, GsonBean::class.java)
     println(gsonBean)//GsonBean(name=, score=12),如果没有registerTypeAdapterFactory，则为GsonBean(name=null, score=12)
+
 }
