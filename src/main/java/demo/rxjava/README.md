@@ -31,4 +31,18 @@ flatMap、contactMap、switchMap都是改变原始事件序列，把原始事件
 5. `do系列`
 6. `repeat系列`
 
+### 过滤操作符
+1. 按指定条件过滤
+    * `filter,ofType`
+    * `skip,skipLast`按事件序号过滤和按时间过滤
+    * `distinct,distinctUntilChanged`
+2. 根据指定事件数量过滤
+   * `take,takeLast`
+3. 根据指定时间过滤--通过设置指定的时间，仅发送在该时间内的事件
+   * `throttleFirst,throttleLast`,`sample`和`throttleLast`类似
+   * `throttleWithTimeout,debounce`效果一样，都可以防抖
+4. 根据指定事件位置过滤
+   * `firstElement,lastElement,elementAt,elementAtOrError`
+
+
 
