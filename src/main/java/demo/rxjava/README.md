@@ -22,4 +22,13 @@ flatMap、contactMap、switchMap都是改变原始事件序列，把原始事件
 4. `startWith,startWithArray`
 5. `count`
 
+### 辅助操作符
+可分为线程调度，错误处理，重复处理等
+1. `delay,delaySubscription` 
+2. `onErrorReturn,onErrorReturnItem`
+3. `ErrorResumeNext,ErrorResumeWith`
+4. `retry系列 retryWhen,retryUtil`
+5. `do系列`
+6. `repeat系列`
+
 
