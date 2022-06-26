@@ -15,6 +15,7 @@ public class Test1 {
             }
         };
         thread.start();
+//        thread.start();//start只能调用一次
         log.debug("running");
     }
 }

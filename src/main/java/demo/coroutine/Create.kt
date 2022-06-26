@@ -18,6 +18,7 @@ fun main() {
     })
     //启动协程
    createCoroutine.resume(Unit)
+//    createCoroutine.resume(Unit)//resume只能被调用一次，否则会跑异常
     suspend {
         "Coroutineff"
     }.startCoroutine(object :Continuation<String>{
@@ -28,4 +29,6 @@ fun main() {
         }
 
     })
+
+    //以上是创建协程的两个基础api，还有两个重载的api(带有receiver的创建)
 }

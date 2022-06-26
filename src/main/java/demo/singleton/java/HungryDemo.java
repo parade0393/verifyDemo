@@ -18,6 +18,7 @@ public class HungryDemo {
         return sHungryDemo;
     }
 
+    //不能防止通过反射创建新的示例
     private HungryDemo(){
 
     }
