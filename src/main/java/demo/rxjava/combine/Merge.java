@@ -13,6 +13,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -126,11 +127,11 @@ public class Merge {
         });
 
         //内部调用了fromIterable(sources).flatMap((Function)Functions.identity(), true);
-        Observable.mergeDelayError(list).subscribeOn(Schedulers.io())
+        Observable.mergeDelayError(list).subscribeOn(Schedulers.from(Executors.newFixedThreadPool(5)))
                 .doFinally(new Action() {
                     @Override
                     public void run() throws Throwable {
-                        System.out.println("concatDelayError接收到了doFinally事件");
+                        System.out.println("mergeDelayError接收到了doFinally事件");
                     }
                 })
                 .subscribe(new Observer<Integer>() {
@@ -141,7 +142,7 @@ public class Merge {
 
                     @Override
                     public void onNext(@NonNull Integer integer) {
-                        System.out.println("mergeDelayError:"+integer);
+                        System.out.println("mergeDelayError:"+integer+"-"+Thread.currentThread().getName());
                     }
 
                     @Override
