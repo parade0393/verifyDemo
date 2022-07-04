@@ -1,10 +1,5 @@
 package demo;
 
-import org.jetbrains.annotations.NotNull;
-
-import java.util.Comparator;
-import java.util.Objects;
-
 public class Node{
     private String id;
     private String name;
@@ -45,19 +40,19 @@ public class Node{
         this.name = name;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Node)) return false;
-        Node node = (Node) o;
-        return getId().equals(node.getId()) &&
-                getName().equals(node.getName());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId(), getName());
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (!(o instanceof Node)) return false;
+//        Node node = (Node) o;
+//        return getId().equals(node.getId()) &&
+//                getName().equals(node.getName());
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(getId(), getName());
+//    }
 
     @Override
     public String toString() {

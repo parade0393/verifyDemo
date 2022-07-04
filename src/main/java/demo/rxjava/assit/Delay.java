@@ -32,58 +32,58 @@ public class Delay {
                 .subscribe(new Observer<Integer>() {
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
-//                        System.out.println("delay开始订阅了");
+                        System.out.println("delay开始订阅了");
                     }
 
                     @Override
                     public void onNext(@NonNull Integer integer) {
-//                        System.out.println("delay发送数据了"+integer);
+                        System.out.println("delay发送数据了"+integer);
                     }
 
                     @Override
                     public void onError(@NonNull Throwable e) {
-//                        System.out.println("delay异常:"+e.getMessage());
+                        System.out.println("delay异常:"+e.getMessage());
                     }
 
                     @Override
                     public void onComplete() {
-//                        System.out.println("delay完成");
+                        System.out.println("delay完成");
                     }
                 });
 
-        Observable.create(new ObservableOnSubscribe<Integer>() {
-            @Override
-            public void subscribe(@NonNull ObservableEmitter<Integer> emitter) throws Throwable {
-                System.out.println("delaySubscription开始发送数据");
-                emitter.onNext(1);
-                System.out.println("delaySubscription发送了数据1");
-                emitter.onNext(2);
-                System.out.println("delaySubscription发送了数据2");
-                emitter.onComplete();
-            }
-        })
-                .delaySubscription(3, TimeUnit.SECONDS)//是否延迟发送异常，如果这里为false，下面onNext压根就收不到信息，为true会收到1和2的事件
-                .subscribe(new Observer<Integer>() {
-                    @Override
-                    public void onSubscribe(@NonNull Disposable d) {
-                        System.out.println("delaySubscription开始订阅");
-                    }
-
-                    @Override
-                    public void onNext(@NonNull Integer integer) {
-                        System.out.println("delaySubscription接收到了数据"+integer);
-                    }
-
-                    @Override
-                    public void onError(@NonNull Throwable e) {
-                        System.out.println("delaySubscription异常:"+e.getMessage());
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        System.out.println("delaySubscription完成");
-                    }
-                });
+//        Observable.create(new ObservableOnSubscribe<Integer>() {
+//            @Override
+//            public void subscribe(@NonNull ObservableEmitter<Integer> emitter) throws Throwable {
+//                System.out.println("delaySubscription开始发送数据");
+//                emitter.onNext(1);
+//                System.out.println("delaySubscription发送了数据1");
+//                emitter.onNext(2);
+//                System.out.println("delaySubscription发送了数据2");
+//                emitter.onComplete();
+//            }
+//        })
+//                .delaySubscription(3, TimeUnit.SECONDS)//是否延迟发送异常，如果这里为false，下面onNext压根就收不到信息，为true会收到1和2的事件
+//                .subscribe(new Observer<Integer>() {
+//                    @Override
+//                    public void onSubscribe(@NonNull Disposable d) {
+//                        System.out.println("delaySubscription开始订阅");
+//                    }
+//
+//                    @Override
+//                    public void onNext(@NonNull Integer integer) {
+//                        System.out.println("delaySubscription接收到了数据"+integer);
+//                    }
+//
+//                    @Override
+//                    public void onError(@NonNull Throwable e) {
+//                        System.out.println("delaySubscription异常:"+e.getMessage());
+//                    }
+//
+//                    @Override
+//                    public void onComplete() {
+//                        System.out.println("delaySubscription完成");
+//                    }
+//                });
         while (true){
 
         }

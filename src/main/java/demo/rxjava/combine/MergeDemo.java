@@ -16,19 +16,20 @@ import java.util.concurrent.Executors;
 public class MergeDemo {
     public static void main(String[] args) {
         List<Observable<String>> list = new ArrayList<>();
+        ExecutorService service = Executors.newFixedThreadPool(5);
         for (int i = 0; i < 100; i++) {
             int finalI = i;
             list.add(Observable.create(new ObservableOnSubscribe<String>() {
                 @Override
                 public void subscribe(@NonNull ObservableEmitter<String> emitter) throws Throwable {
                     System.out.println("发送线程："+Thread.currentThread().getName());
-                    emitter.onNext("开始发送数据:"+finalI);
+                    emitter.onNext(":"+finalI);
                     emitter.onComplete();
                 }
-            }));
+            }).subscribeOn(Schedulers.from(service)));
         }
-        ExecutorService service = Executors.newFixedThreadPool(5);
-        Observable.mergeDelayError(list).subscribeOn(Schedulers.from(service,true,false))
+
+        Observable.mergeDelayError(list).subscribeOn(Schedulers.io())
                 .doFinally(service::shutdown)
                 .subscribe(new Observer<String>() {
                     @Override
@@ -51,5 +52,11 @@ public class MergeDemo {
                         System.out.println("onComplete:"+Thread.currentThread().getName());
                     }
                 });
+
+        while (true){
+//            boolean shutdown = service.isShutdown();
+//            System.out.println(shutdown);
+        }
     }
+
 }

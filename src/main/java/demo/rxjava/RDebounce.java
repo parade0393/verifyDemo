@@ -23,13 +23,13 @@ public class RDebounce {
             public void subscribe(@NonNull ObservableEmitter<Integer> emitter) throws Throwable {
                 emitter.onNext(1);
                 Thread.sleep(400);
-                emitter.onNext(1);//因为防斗时间是500ms,而发送1和发送2间隔400ms，所以1事件就丢弃了
+                emitter.onNext(2);//因为防斗时间是500ms,而发送1和发送2间隔400ms，所以1事件就丢弃了
                 Thread.sleep(505);//发送了2事件就重新计算时间，而在防斗500ms以内没有发送新的事件，所以2事件被发送到下游
-                emitter.onNext(1);
+                emitter.onNext(3);
                 Thread.sleep(100);
-                emitter.onNext(1);
+                emitter.onNext(4);//下游接收到
                 Thread.sleep(605);
-                emitter.onNext(1);
+                emitter.onNext(5);//下游接收到
                 Thread.sleep(100);
                 emitter.onComplete();
             }

@@ -7,7 +7,6 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class FixedDemo2 {
@@ -19,7 +18,7 @@ public class FixedDemo2 {
         CountDownLatch countDownLatch = new CountDownLatch(length);
         executorService.execute(()->{
             for (int i = 0; i < length; i++) {
-                Observable.just(0).delay(500, TimeUnit.MILLISECONDS).subscribeOn(Schedulers.io()).subscribe(new Consumer<Integer>() {
+                Observable.just(0).subscribe(new Consumer<Integer>() {
                     @Override
                     public void accept(Integer integer) throws Throwable {
                         Thread.sleep(500);
