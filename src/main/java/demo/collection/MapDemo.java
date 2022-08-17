@@ -1,8 +1,8 @@
 package demo.collection;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import demo.User;
+
+import java.util.*;
 
 public class MapDemo {
     public static void main(String[] args) {
@@ -30,5 +30,26 @@ public class MapDemo {
         for (Map.Entry<String, String> stringStringEntry : map.entrySet()) {
             System.out.println("key = "+stringStringEntry.getKey()+"and value= "+stringStringEntry.getValue());
         }
+        System.out.println("------------------------------");
+        Collection<String> values = map.values();
+        List<String> collList = new ArrayList<>(values);
+        System.out.println(collList);
+        System.out.println("-----------深拷贝-----------");
+        HashMap<String, String> map1 = new HashMap<>();
+        map1.putAll(map);
+        map.remove("1");
+        System.out.println(map);
+        System.out.println(map1);
+        HashMap<String, User> hashMap = new HashMap<>();
+        hashMap.put("1", new User(1, "name1"));
+        hashMap.put("2", new User(2, "NAME2"));
+        HashMap<String, User> copyHashMap = new HashMap<>(hashMap);
+        hashMap.remove("1");
+        System.out.println(hashMap);
+        System.out.println(copyHashMap);
+
+        System.out.println("****************");
+        String s = map.get("4");
+        System.out.println(s);
     }
 }

@@ -7,7 +7,18 @@ package demo.singleton.java;
  */
 public class InnerStaticClass {
 
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     private InnerStaticClass(){
+        this.name = "init";
         System.out.println("构造函数");
     }
 

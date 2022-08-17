@@ -1,11 +1,14 @@
-package demo;
+package demo.collection;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class TestJava {
+/**
+ * 集合删除的和增加的
+ */
+public class DiffMap {
     public static void main(String[] args) {
         List<Map<String, Object>> oldList = new ArrayList<>();
         Map<String, Object> map1 = new HashMap<>();
@@ -20,10 +23,10 @@ public class TestJava {
 
         List<Map<String, Object>> newList = new ArrayList<>();
 
-        Map<String, Object> map3 = new HashMap<>();
-        map3.put("areaKey", "LY");
-        map3.put("HOST", "http");
-        newList.add(map3);
+//        Map<String, Object> map3 = new HashMap<>();
+//        map3.put("areaKey", "LY");
+//        map3.put("HOST", "http");
+//        newList.add(map3);
         Map<String, Object> map4 = new HashMap<>();
         map4.put("areaKey", "AY");
         map4.put("HOST", "http");
@@ -55,15 +58,14 @@ public class TestJava {
 
         //处理增加的
         List<Map<String, Object>> addList = new ArrayList<>();
-        List<Map<String, Object>> diffList = new ArrayList<>();
         for (Map<String, Object> newMap : newList) {
             boolean exitsFlag = false;
             String newKey = (String) newMap.get("areaKey");
             for (Map<String, Object> oldMap : oldList) {
                 String oldKey = (String) oldMap.get("areaKey");
                 if (newKey.equals(oldKey)){
-                    diffList.add(newMap);
                     exitsFlag = true;
+                    break;
                 }
             }
             if (!exitsFlag){
@@ -75,11 +77,5 @@ public class TestJava {
         for (Map<String, Object> addMap : addList) {
             System.out.println("areaKey:"+addMap.get("areaKey")+"--HOST:"+addMap.get("HOST"));
         }
-
-        System.out.println("******************");
-        for (Map<String, Object> diffMap : diffList) {
-            System.out.println("areaKey:"+diffMap.get("areaKey")+"--HOST:"+diffMap.get("HOST"));
-        }
     }
 }
-
