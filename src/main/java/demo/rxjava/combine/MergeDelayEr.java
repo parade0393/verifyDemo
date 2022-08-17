@@ -19,32 +19,31 @@ public class MergeDelayEr {
                 emitter.onError(new Throwable("出错了"));
                 emitter.onComplete();
             }
-        }).subscribeOn(Schedulers.io());
+        });
 
         Observable<String> observable2 = Observable.create(new ObservableOnSubscribe<String>() {
             @Override
             public void subscribe(@NonNull ObservableEmitter<String> emitter) throws Throwable {
                 emitter.onNext("a");
-//                System.out.println("a发送了");
                 emitter.onComplete();
             }
-        }).subscribeOn(Schedulers.io());
+        });
         Observable<String> observable3 = Observable.create(new ObservableOnSubscribe<String>() {
             @Override
             public void subscribe(@NonNull ObservableEmitter<String> emitter) throws Throwable {
                 emitter.onNext("b");
-//                System.out.println("发送了b");
                 emitter.onComplete();
-//                System.out.println("b发送完成");
             }
-        }).subscribeOn(Schedulers.io());
+        });
 
         List<Observable<String>> list = new ArrayList<>();
         list.add(observable1);
         list.add(observable2);
         list.add(observable3);
-        Observable.mergeDelayError(list)
+        Observable.concatDelayError(list)
                 .subscribeOn(Schedulers.io())
+//                .observeOn(Schedulers.io())//这样写不会达到预期的效果，遇到错误后还是会立即终止，不会延迟发送错误事件
+                .observeOn(Schedulers.io(),true)//指定可以延迟发送事件，达到遇到错误不影响接收其他成功事件
                 .subscribe(new Observer<String>() {
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
