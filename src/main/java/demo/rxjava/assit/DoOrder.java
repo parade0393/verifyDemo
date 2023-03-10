@@ -32,7 +32,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
  * 3.doOnNext>doOnComplete>onNext>doOnTerminate>onComplete>doFinally
  * 4.doOnError>doOnTerminate>onError>doFinally
  */
-public class Do {
+public class DoOrder {
     public static void main(String[] args) {
         Observable.create(new ObservableOnSubscribe<Integer>() {
             @Override
