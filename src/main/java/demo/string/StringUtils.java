@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 
 public class StringUtils {
     public static void main(String[] args) {
-        String url = getParamByUrl("xgscheme://com.zwt.push/workplatform_web?type=102&id=79&url=http%3a%2f%2f218.29.175.190%3a8090%2fHtml%2foa%2f6447%2f5.2.3.68%2fcwb%2findex.html%23%2freceive-detail%3fid%3d79%26mobile%3d13703937803%26token%3d3d5fc44f824f4345a684a328571953bc%26govId%3d6447&areaKey=PY","url");
+        String url = getParamByUrl("xgscheme://com.zwt.push/workplatform_web?type=102&id=79&url=http%3a%2f%2f218.29.175.190%3a8090%2fHtml%2foa%2f6447%2f5.2.3.68%2fcwb%2findex.html%23%2freceive-detail%3fid%3d79%26mobile%3d13703937803%26token%3d3d5fc44f824f4345a684a328571953bc%26govId%3d6447&areaKey=PY", "url");
 //        try {
 //            String decode = URLDecoder.decode(url, "utf-8");
 //            System.out.println(decode);
