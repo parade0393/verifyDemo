@@ -1,6 +1,5 @@
 package demo.thread.create
 
-import kotlinx.coroutines.delay
 import java.util.concurrent.TimeUnit
 import kotlin.coroutines.Continuation
 import kotlin.coroutines.CoroutineContext
@@ -14,7 +13,6 @@ fun main() {
 
     launchCoroutine(ProducerScope<Int>()) {
         produce(1024)
-        delay(1000)
         produce(2048)
         10
     }
